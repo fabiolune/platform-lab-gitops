@@ -1,0 +1,26 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: kiali
+  namespace: istio-system
+spec:
+  interval: 1h0m0s
+  url: https://kiali.org/helm-charts/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kiali-server
+  namespace: istio-system
+spec:
+  chart:
+    spec:
+      chart: kiali-server
+      sourceRef:
+        kind: HelmRepository
+        name: kiali
+  interval: 1h0m0s
+  releaseName: kiali-server
+  values:
+    auth:
+      strategy: "anonymous"

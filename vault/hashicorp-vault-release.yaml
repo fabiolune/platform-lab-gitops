@@ -1,0 +1,51 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vault
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: vault
+      sourceRef:
+        kind: HelmRepository
+        name: hashicorp
+      version: ">=0.11.0-0"
+  values:
+    global:
+      enabled: true
+      tlsDisable: false
+    server:
+      affinity: ""
+      dataStorage:
+        enabled: true
+        size: 500Mi
+      extraArgs: -config=/vault/userconfig/azure-keyvault/azurekeyvault.hcl
+      extraVolumes:
+      - name: azure-keyvault
+        type: secret
+      ha:
+        enabled: true
+        raft:
+          config: |
+            ui = true
+
+            listener "tcp" {
+              address = "[::]:8200"
+              cluster_address = "[::]:8201"
+            }
+            
+            storage "raft" {
+              path = "/vault/data"
+            }
+
+            service_registration "kubernetes" {}
+          enabled: true
+        replicas: 1
+  interval: 1h0m0s
+  releaseName: vault
+  targetNamespace: default
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace

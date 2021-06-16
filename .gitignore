@@ -6,3 +6,5 @@
 .subscription_id
 
 azurekeyvault.hcl
+
+vaultdata.txt

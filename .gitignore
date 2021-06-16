@@ -4,3 +4,5 @@
 .vault_name
 .key_name
 .subscription_id
+
+azurekeyvault.hcl

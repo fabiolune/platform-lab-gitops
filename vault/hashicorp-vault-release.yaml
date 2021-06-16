@@ -46,7 +46,7 @@ spec:
             }
             service_registration "kubernetes" {}
           enabled: true
-        replicas: 2
+        replicas: 1
   interval: 1h0m0s
   releaseName: vault
   targetNamespace: default

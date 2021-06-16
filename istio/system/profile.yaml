@@ -4,7 +4,7 @@ metadata:
   namespace: istio-system
   name: istio-default
 spec:
-  profile: default
+  profile: demo
   components:
     ingressGateways:
     - namespace: istio-system

@@ -10,7 +10,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: platform-lab-api
-        path: ./chart
+        # path: ./chart
       version: "0.1.0"
   values:
     component:

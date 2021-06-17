@@ -14,6 +14,7 @@ spec:
   values:
     global:
       enabled: true
+      tlsDisable: true
     server:
       affinity: ""
       dataStorage:

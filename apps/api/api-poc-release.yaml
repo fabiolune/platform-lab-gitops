@@ -1,34 +1,16 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: poc-api
-  namespace: flux-system
+  name: jitsi
+  namespace: jitsi
 spec:
+  releaseName: jitsi
   chart:
     spec:
-      chart: ./chart
+      chart: ./examples/helm
       sourceRef:
         kind: GitRepository
-        name: platform-lab-api
-      version: "0.1.0"
-  values:
-    component:
-      canary:
-        enabled: true
-        errorRate:
-          thresholdRange: 50
-        latency:
-          thresholdRange: 500
-      serviceAccount: poc-api
-      flakiness: 90
-      vault:
-        role: poc-api
-        authSecret: poc/network/api
-        redisSecret: poc/persistence/redis
-  interval: 1m0s
-  releaseName: poc-api
-  targetNamespace: default
-  install:
-    crds: Create
-  upgrade:
-    crds: CreateReplace
+        name: jitsi
+        namespace: flux-system
+  interval: 1h0m0s
+  values: {}

@@ -23,7 +23,7 @@ spec:
         latency:
           thresholdRange: 500
       serviceAccount: poc-api
-      flakiness: 10
+      flakiness: 5
       vault:
         role: poc-api
         authSecret: poc/network/api

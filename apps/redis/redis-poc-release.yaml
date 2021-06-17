@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: poc-redis
+  namespace: flux-system
+spec:
+  releaseName: poc-redis
+  targetNamespace: default
+  chart:
+    spec:
+      chart: ./chart
+      sourceRef:
+        kind: GitRepository
+        name: platform-lab-redis
+        namespace: flux-system
+  interval: 1h0m0s
+  values:
+    component:
+      serviceAccount: poc-redis
+      vault:
+        role: poc-persistence
+        secret: poc/persistence/redis

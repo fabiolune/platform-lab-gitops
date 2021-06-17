@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: chart/platform-lab-api
+      chart: chart/
       sourceRef:
         kind: GitRepository
         name: platform-lab-api

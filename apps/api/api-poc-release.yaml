@@ -19,7 +19,7 @@ spec:
       canary:
         enabled: true
         errorRate:
-          thresholdRange: 50
+          thresholdRange: 25
         latency:
           thresholdRange: 500
       serviceAccount: poc-api

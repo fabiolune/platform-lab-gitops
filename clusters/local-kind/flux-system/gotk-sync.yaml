@@ -5,7 +5,7 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 30s
+  interval: 20s
   ref:
     branch: master
   secretRef:

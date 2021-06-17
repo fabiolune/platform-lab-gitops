@@ -7,7 +7,7 @@ spec:
   releaseName: jitsi
   chart:
     spec:
-      chart: ./examples/helm
+      chart: ./chart
       sourceRef:
         kind: GitRepository
         name: jitsi

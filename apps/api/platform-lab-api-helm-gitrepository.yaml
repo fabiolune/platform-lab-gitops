@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: k8s-helm
-  url: https://github.com/Zempashi/docker-jitsi-meet
+    branch: main
+  url: https://github.com/fabiolune/platform-lab-api-chart

@@ -13,17 +13,19 @@ spec:
         kind: GitRepository
         name: platform-lab-api
         namespace: flux-system
-  interval: 1h0m0s
+  interval: 10m0s
   values:
     component:
       canary:
         enabled: true
         errorRate:
+          enabled: true
           thresholdRange: 50
         latency:
-          thresholdRange: 300000
+          enabled: false
+          thresholdRange: 500
       serviceAccount: poc-api
-      flakiness: 1
+      flakiness: 0
       vault:
         role: poc-api
         authSecret: poc/network/api

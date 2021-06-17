@@ -14,18 +14,13 @@ spec:
   values:
     global:
       enabled: true
-      tlsDisable: false
     server:
       affinity: ""
       dataStorage:
         enabled: true
         size: 500Mi
-      extraEnvironmentVars:
-        VAULT_CACERT: /vault/userconfig/vault-server-tls/vault.ca
       extraArgs: -config=/vault/userconfig/azure-keyvault/azurekeyvault.hcl
       extraVolumes:
-      - name: vault-server-tls
-        type: secret
       - name: azure-keyvault
         type: secret
       ha:
@@ -33,12 +28,10 @@ spec:
         raft:
           config: |
             ui = true
+
             listener "tcp" {
               address = "[::]:8200"
               cluster_address = "[::]:8201"
-              tls_cert_file = "/vault/userconfig/vault-server-tls/vault.crt"
-              tls_key_file  = "/vault/userconfig/vault-server-tls/vault.key"
-              tls_client_ca_file = "/vault/userconfig/vault-server-tls/vault.ca"
             }
             
             storage "raft" {
@@ -46,7 +39,7 @@ spec:
             }
             service_registration "kubernetes" {}
           enabled: true
-        replicas: 1
+        replicas: 2
   interval: 1h0m0s
   releaseName: vault
   targetNamespace: default

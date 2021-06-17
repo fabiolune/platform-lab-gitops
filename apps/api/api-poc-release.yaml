@@ -21,9 +21,9 @@ spec:
         errorRate:
           thresholdRange: 50
         latency:
-          thresholdRange: 500
+          thresholdRange: 15000
       serviceAccount: poc-api
-      flakiness: 0
+      flakiness: 5
       vault:
         role: poc-api
         authSecret: poc/network/api

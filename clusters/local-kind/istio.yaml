@@ -1,16 +1,9 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: istio-namespaces
-  namespace: flux-system
-spec:
-  interval: 10m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  path: ./istio/namespaces
-  prune: true
-  validation: client
+  name: default
+  labels:
+    istio-injection: enabled
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization

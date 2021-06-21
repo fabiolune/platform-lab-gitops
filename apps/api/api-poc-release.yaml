@@ -17,7 +17,7 @@ spec:
   values:
     component:
       canary:
-        enabled: true
+        enabled: false
         errorRate:
           enabled: true
           thresholdRange: 50

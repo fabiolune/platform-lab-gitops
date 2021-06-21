@@ -12,4 +12,4 @@ spec:
       enabled: true
       k8s:
         serviceAnnotations:
-          service.beta.kubernetes.io/azure-dns-label-name: diva-poc
+          service.beta.kubernetes.io/azure-dns-label-name: platform-lab

@@ -22,10 +22,10 @@ spec:
           enabled: true
           thresholdRange: 50
         latency:
-          enabled: true
+          enabled: false
           thresholdRange: 500
       serviceAccount: poc-api
-      flakiness: 0
+      flakiness: 5
       vault:
         role: poc-api
         authSecret: poc/network/api

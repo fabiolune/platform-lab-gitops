@@ -32,23 +32,23 @@ spec:
   path: ./istio/system
   prune: true
   validation: client
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: istiod
-      namespace: istio-system
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: prometheus
-      namespace: istio-system
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: flagger
-      namespace: istio-system
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: kiali-server
-      namespace: istio-system
+  # healthChecks:
+  #   - apiVersion: apps/v1
+  #     kind: Deployment
+  #     name: istiod
+  #     namespace: istio-system
+  #   - apiVersion: apps/v1
+  #     kind: Deployment
+  #     name: prometheus
+  #     namespace: istio-system
+  #   - apiVersion: apps/v1
+  #     kind: Deployment
+  #     name: flagger
+  #     namespace: istio-system
+  #   - apiVersion: apps/v1
+  #     kind: Deployment
+  #     name: kiali-server
+  #     namespace: istio-system
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization

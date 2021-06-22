@@ -25,7 +25,7 @@ spec:
           enabled: false
           thresholdRange: 500
       serviceAccount: poc-api
-      flakiness: 0
+      flakiness: 75
       vault:
         role: poc-api
         authSecret: poc/network/api

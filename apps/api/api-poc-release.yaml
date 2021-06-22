@@ -17,12 +17,12 @@ spec:
   values:
     component:
       canary:
-        enabled: true
+        enabled: false
         errorRate:
           enabled: true
           thresholdRange: 50
         latency:
-          enabled: false
+          enabled: true
           thresholdRange: 500
       serviceAccount: poc-api
       flakiness: 0
